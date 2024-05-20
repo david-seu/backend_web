@@ -1,7 +1,7 @@
 <?php
-include "configuration.php";
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Origin: *");
+require_once "configuration.php";
 $brand = $_POST['brand'];
 $model = $_POST['model'];
 $year = $_POST['year'];
@@ -19,6 +19,7 @@ global $connection;
 $result = mysqli_query($connection, $sql_query);
 if ($result) {
     echo "Your car was added successfully!";
+    echo $result;
     header("Location: showCars.php");
 } else {
     echo "Oops!Something went wrong and your car cannot be added!Please try again later.";
