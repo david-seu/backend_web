@@ -16,7 +16,7 @@ $fuel_type = $request->fuel_type;
 $engine_size = $request->engine_size;
 $fuel_efficiency = $request->fuel_efficiency;
 $color = $request->color;
-$sql_query = "update `car` set brand = '$brand', model = '$model', year = '$year', mileage = '$mileage', price = '$price', `condition` = '$condition', transmission = '$transmission', fuel_type = '$fuel_type', engine_size = '$engine_size', fuel_efficiency = '$fuel_efficiency', color = '$color' where car_id = $id;";
+$sql_query = "update `car` set brand = '$brand', model = '$model', year = '$year', mileage = '$mileage', price = '$price', `condition` = '$condition', transmission = '$transmission', fuel_type = '$fuel_type', engine_size = '$engine_size', fuel_efficiency = '$fuel_efficiency', color = '$color' where id = $id;";
 global $connection;
 $result = mysqli_query($connection, $sql_query);
 echo "Your car was updated successfully!";

@@ -4,11 +4,11 @@ header("Access-Control-Allow-Origin: *");
 require_once "configuration.php";
 global $connection;
 $id = $_GET['id'];
-$sql_query = "select * from car where car_id = '$id';";
+$sql_query = "select * from car where id = '$id';";
 $result = mysqli_query($connection, $sql_query);
 $car = mysqli_fetch_array($result);
 echo json_encode(array(
-    "id" => $car['car_id'],
+    "id" => $car['id'],
     "brand" => $car['brand'],
     "model" => $car['model'],
     "year" => $car['year'],

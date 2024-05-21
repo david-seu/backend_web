@@ -8,12 +8,12 @@ $result = mysqli_query($connection, $sql_query);
 if ($result) {
     $number_of_rows = mysqli_num_rows($result);
     $requested_cars = array();
-    // $brand = $_GET["brand"];
+    $brand = $_GET["brand"];
     for ($i = 0; $i < $number_of_rows; $i++) {
         $row = mysqli_fetch_array($result);
-        // if (str_contains($row["brand"], $brand))
+        if (str_contains(strtolower($row["brand"]), strtolower($brand)))
             array_push($requested_cars, array(
-                "id" => $row['car_id'], 
+                "id" => $row['id'], 
                 "brand" => $row['brand'],
                 "model" => $row['model'],
                 "year" => $row['year'],
@@ -25,7 +25,7 @@ if ($result) {
                 "engine_size" => $row['engine_size'],
                 "fuel_efficiency" => $row['fuel_efficiency'],
                 "color" => $row['color'],
-            ));     
+            ));    
     }
     mysqli_free_result($result);
     echo json_encode($requested_cars);
